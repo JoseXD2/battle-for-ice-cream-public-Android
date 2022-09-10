@@ -88,6 +88,9 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
+		#if android
+	  FlxG.android.preventDefaultKeys = [BACK];
+	  #end
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
@@ -99,7 +102,7 @@ class TitleState extends MusicBeatState
 
 		//trace(path, FileSystem.exists(path));
 
-		/*#if (polymod && !html5)
+		#if (polymod && !html5)
 		if (sys.FileSystem.exists('mods/')) {
 			var folders:Array<String> = [];
 			for (file in sys.FileSystem.readDirectory('mods/')) {
@@ -112,7 +115,7 @@ class TitleState extends MusicBeatState
 				polymod.Polymod.init({modRoot: "mods", dirs: folders});
 			}
 		}
-		#end*/
+		#end
 
 		FlxG.game.focusLostFramerate = 60;
 		FlxG.sound.muteKeys = muteKeys;
