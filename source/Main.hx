@@ -47,6 +47,8 @@ class Main extends Sprite
 	{
 		super();
 
+		SUtil.uncaughtErrorHandler();
+		
 		if (stage != null)
 		{
 			init();
